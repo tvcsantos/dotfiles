@@ -1,0 +1,4 @@
+# Point Zsh to your config root
+export ZDOTDIR="$HOME/.config/zsh"
+
+[ -r "$ZDOTDIR/.zshenv" ] && . "$ZDOTDIR/.zshenv"
