@@ -1,0 +1,13 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+command_timeout = 1000
+
+[aws]
+disabled = true
+
+[username]
+show_always = true
+
+[kubernetes]
+disabled = true
