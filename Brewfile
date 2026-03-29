@@ -82,3 +82,11 @@ cask "windsurf"
 cask "wireshark-app"
 mas "Gifski", id: 1351639930
 mas "Xcode", id: 497799835
+
+# cask "visualvm"
+# cask "vlc"
+# cask "vnc-viewer"
+
+# -- games --
+# cask "nvidia-geforce-now"
+# cask "steam"
