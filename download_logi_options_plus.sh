@@ -18,7 +18,8 @@ error()   { echo -e "${RED}[ERROR]${RESET} $*" >&2; }
 # -- Config -------------------------------------------------------------------
 PRODUCT_PAGE="https://www.logitech.com/en-us/software/logi-options-plus.html"
 CDN_BASE="https://software.logi.com/macos"
-DOWNLOAD_DIR="${HOME}/Downloads"
+# download to temporary directory
+DOWNLOAD_DIR="$(mktemp -d "/tmp/logioptionsplus.XXXXXX")"
 FILENAME="logioptionsplus_installer.zip"
 DEST="${DOWNLOAD_DIR}/${FILENAME}"
 
