@@ -6,6 +6,7 @@
 {{- $work_email := "" -}}
 {{- $work_signingkey := "" -}}
 {{- $work_code_dirs := "" -}}
+{{- $logi_options_plus := false -}}
 
 {{- if $work -}}
 {{- $work_email = promptString "Your work email" -}}
@@ -13,7 +14,9 @@
 {{- $work_code_dirs = promptString "Your work code directories (comma-separated, e.g. ~/Code/Company1,~/Code/Company2)" "~/Code/Company" -}}
 {{- end -}}
 
-{{- $logi_options_plus := promptBool "Install Logi Options Plus (macOS only)" false -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $logi_options_plus = promptBool "Install Logi Options Plus" false -}}
+{{- end -}}
 
 [data]
 name = {{ $name | quote }}
