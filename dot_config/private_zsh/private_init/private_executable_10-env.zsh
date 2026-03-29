@@ -1,0 +1,3 @@
+# sensible history options
+setopt hist_ignore_dups hist_ignore_all_dups hist_reduce_blanks
+setopt share_history inc_append_history extended_history

@@ -1,0 +1,11 @@
+#alias gfc='git fetch -p ; git branch -r | awk '\''{print $1}'\'' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '\''{print $1}'\'' | xargs git branch -d --force'
+alias gfc="git fetch -p && git branch -r | awk '{print \$1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print \$1}' | xargs git branch -d --force && comm -23 <(git tag | sort) <(git ls-remote --tags origin | awk '{print \$2}' | sed 's|refs/tags/||' | sort) | xargs -r git tag -d"
+alias glf='gl && gfc'
+alias ls='lsd'
+alias kns='kubens'
+alias kx='kubectx'
+alias gre='gradle'
+alias kre='k rollout restart deployment'
+alias codi='code-insiders'
+alias gtp='git push --tags'
+alias surf='windsurf'

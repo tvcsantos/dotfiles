@@ -1,0 +1,7 @@
+# PATH basics that scripts may need (keep short)
+{{ if eq .chezmoi.os "darwin" }}
+# (macOS Homebrew first if present)
+if [ -d /opt/homebrew/bin ]; then PATH="/opt/homebrew/bin:$PATH"; fi
+{{ end }}
+if [ -d "$HOME/bin" ]; then PATH="$HOME/bin:$PATH"; fi
+export PATH

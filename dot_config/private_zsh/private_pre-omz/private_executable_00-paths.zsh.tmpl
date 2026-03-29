@@ -1,0 +1,10 @@
+# Ensure managers and tools are found before OMZ plugins try to use them
+
+{{ if eq .chezmoi.os "darwin" -}}
+# Add JetBrains Toolbox scripts if directory exists
+if [[ -d "$HOME/Library/Application Support/JetBrains/Toolbox/scripts" ]]; then
+  path=("$HOME/Library/Application Support/JetBrains/Toolbox/scripts" $path)
+fi
+{{- end }}
+
+typeset -U path PATH

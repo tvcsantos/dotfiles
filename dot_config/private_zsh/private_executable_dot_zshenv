@@ -1,0 +1,27 @@
+# 1) Common script-safe env
+for f in "$ZDOTDIR/env/common/"*.zsh(N); do
+  source "$f"
+done
+
+# 2) OS-specific env (single file per OS)
+case "$OSTYPE" in
+  darwin*) _pf="$ZDOTDIR/env/platform/darwin.zsh" ;;
+  linux*)  _pf="$ZDOTDIR/env/platform/linux.zsh"  ;;
+esac
+[[ -r "$_pf" ]] && source "$_pf"
+unset _pf
+
+# 3) Host-specific env (single file, any OS)
+_hf="$ZDOTDIR/env/platform/host-$(hostname -s).zsh"
+[[ -r "$_hf" ]] && source "$_hf"
+unset _hf
+
+# 4) Common secrets (scripts + GUI + terminals)
+_sec="$ZDOTDIR/env/secrets/common.zsh"
+[[ -r "$_sec" ]] && source "$_sec"
+unset _sec
+
+# 5) Host-specific common secrets (scripts + GUI + terminals)
+_sech="$ZDOTDIR/env/secrets/common-host-$(hostname -s).zsh"
+[[ -r "$_sech" ]] && source "$_sech"
+unset _sech

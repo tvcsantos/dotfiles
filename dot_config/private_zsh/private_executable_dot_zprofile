@@ -1,0 +1,17 @@
+# .zprofile – Login shells (GUI apps like IntelliJ, VS Code)
+# Only runs once per login session
+
+# 1) Login-specific env (non-secret)
+for f in "$ZDOTDIR/env/login/"*.zsh(N); do
+  source "$f"
+done
+
+# 2) Login-specific secrets
+_sl="$ZDOTDIR/env/secrets/login.zsh"
+[[ -r "$_sl" ]] && source "$_sl"
+unset _sl
+
+# 3) Login-specific host secrets
+_slh="$ZDOTDIR/env/secrets/login-host-$(hostname -s).zsh"
+[[ -r "$_slh" ]] && source "$_slh"
+unset _slh

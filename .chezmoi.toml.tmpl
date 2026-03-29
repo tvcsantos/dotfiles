@@ -1,3 +1,14 @@
+{{- $name := promptString "Your name" -}}
+{{- $email := promptString "Your email" -}}
+{{- $work := promptBool "Work machine?" -}}
+
+{{- if $work }}
+{{- $work_email := promptString "Your work email" -}}
+{{- end }}
+
 [data]
-name = {{ promptString "Your name" | quote }}
-email = {{ promptString "Your email" | quote }}
+name = {{ $name | quote }}
+email = {{ $email | quote }}
+{{- if $work }}
+work_email = {{ $work_email | quote }}
+{{- end }}
