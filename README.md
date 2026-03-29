@@ -52,6 +52,7 @@ This repository uses [chezmoi](https://www.chezmoi.io/) to manage dotfiles and c
 - ✅ Oh My Zsh
 - ✅ Development tools and CLIs
 - ✅ Homebrew packages (via Brewfile)
+- ✅ Logi Options Plus (macOS, optional)
 
 ### Configuration Files
 
@@ -80,9 +81,13 @@ This repository uses [chezmoi](https://www.chezmoi.io/) to manage dotfiles and c
 
 ```text
 .
+├── .chezmoi.toml.tmpl                # Chezmoi configuration template
 ├── Brewfile                          # Homebrew packages (macOS)
+├── LICENSE                           # License file
+├── README.md                         # This file
 ├── dot_gitconfig*.tmpl               # Git configurations (templated)
 ├── dot_zshenv                        # ZSH environment variables
+├── download_logi_options_plus.sh     # Logi Options Plus installer helper
 ├── run_once_*.sh.tmpl                # First-time setup scripts
 │
 └── dot_config/
@@ -139,16 +144,29 @@ Configuration files use chezmoi's templating system (`.tmpl` extension) to suppo
 
 #### Available Template Variables
 
-Common variables can be set during initialization:
+During initialization, chezmoi will prompt for:
 
-- Git name, email, SSH keys
-- Personal vs. work configuration preferences
-- Host-specific settings
+- **name**: Your name
+- **email**: Your personal email
+- **signingkey**: GPG signing key path (SSH format, e.g., `~/.ssh/id_ed25519`)
+- **code_dirs**: Personal code directories (comma-separated)
+- **work**: Whether this is a work machine
+- **work_email**: Your work email (if work machine)
+- **work_signingkey**: Work GPG signing key (if work machine)
+- **work_code_dirs**: Work code directories (if work machine)
+- **logi_options_plus**: Install Logi Options Plus (macOS only)
 
 View and edit templates:
 
 ```bash
 chezmoi edit-config
+```
+
+To reconfigure variables:
+
+```bash
+chezmoi init --configure
+chezmoi apply
 ```
 
 ### Modifying Configurations
@@ -243,6 +261,18 @@ git push
 - **Platform abstraction**: Shared configs with platform-specific overrides
 - **Templating**: Support for multiple machines and configurations
 - **Automation**: Run-once scripts for reproducible setup
+
+## First-Time Setup Scripts
+
+The repository includes automated setup scripts that run only once:
+
+1. **01-install-homebrew.sh.tmpl**: Installs Homebrew (macOS)
+2. **02-install-oh-my-zsh.sh.tmpl**: Sets up Oh My Zsh
+3. **03-install-tools.sh.tmpl**: Installs development tools and CLIs
+4. **04-install-packages.sh.tmpl**: Installs Homebrew packages from Brewfile
+5. **05-install-logioptions.sh.tmpl**: Installs Logi Options Plus (macOS, if enabled)
+
+These scripts automatically execute on first-time `chezmoi apply` and are skipped on subsequent runs.
 
 ## Troubleshooting
 
