@@ -1,0 +1,7 @@
+{{- if .work -}}
+[user]
+    email = {{ .work_email }}
+    signingkey = {{ .work_signingkey }}
+[core]
+    sshCommand = "ssh -i {{ .work_signingkey }} -F ~/.ssh/config"
+{{- end -}}

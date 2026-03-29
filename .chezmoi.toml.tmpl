@@ -1,14 +1,26 @@
 {{- $name := promptString "Your name" -}}
 {{- $email := promptString "Your email" -}}
-{{- $work := promptBool "Work machine?" -}}
+{{- $signingkey := promptString "Your GPG signing key (SSH format, e.g. ~/.ssh/id_ed25519)" "~/.ssh/id_ed25519" -}}
+{{- $code_dirs := promptString "Your personal code directories (comma-separated, e.g. ~/Code/GitHub,~/Code/Other)" "~/Code/GitHub" -}}
+{{- $work := promptBool "Work machine" -}}
+{{- $work_email := "" -}}
+{{- $work_signingkey := "" -}}
+{{- $work_code_dirs := "" -}}
 
-{{- if $work }}
-{{- $work_email := promptString "Your work email" -}}
-{{- end }}
+{{- if $work -}}
+{{- $work_email = promptString "Your work email" -}}
+{{- $work_signingkey = promptString "Your work GPG signing key (SSH format, e.g. ~/.ssh/id_ed25519)" "~/.ssh/id_ed25519" -}}
+{{- $work_code_dirs = promptString "Your work code directories (comma-separated, e.g. ~/Code/Company1,~/Code/Company2)" "~/Code/Company" -}}
+{{- end -}}
 
 [data]
 name = {{ $name | quote }}
 email = {{ $email | quote }}
-{{- if $work }}
+signingkey = {{ $signingkey | quote }}
+code_dirs = {{ $code_dirs | quote }}
+work = {{ $work }}
+{{if $work -}}
 work_email = {{ $work_email | quote }}
+work_signingkey = {{ $work_signingkey | quote }}
+work_code_dirs = {{ $work_code_dirs | quote }}
 {{- end }}

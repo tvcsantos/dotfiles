@@ -1,0 +1,31 @@
+[user]
+	name = {{ .name }}
+[pull]
+	rebase = false
+[core]
+	autocrlf = input
+[commit]
+	gpgSign = true
+[gpg]
+	format = ssh
+[credential]
+	protectProtocol = true
+[push]
+	autoSetupRemote = true
+
+{{- if .work }}
+{{- range $i, $dir := splitList "," .work_code_dirs }}
+
+[includeIf "gitdir:{{ $dir }}/**"]
+	path = ~/.gitconfig-work
+{{- end -}}
+{{- end }}
+
+{{- range $i, $dir := splitList "," .code_dirs }}
+
+[includeIf "gitdir:{{ $dir }}/**"]
+	path = ~/.gitconfig-personal
+{{- end }}
+
+[includeIf "gitdir:~/.local/share/chezmoi/**"]
+	path = ~/.gitconfig-personal

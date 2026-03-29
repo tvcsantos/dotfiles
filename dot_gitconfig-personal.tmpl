@@ -1,0 +1,5 @@
+[user]
+    email = {{ .email }}
+    signingkey = {{ .signingkey }}
+[core]
+    sshCommand = "ssh -i {{ .signingkey }} -F ~/.ssh/config"
