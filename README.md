@@ -304,8 +304,4 @@ chezmoi data
 
 ## License
 
-[Specify your license]
-
-## Author
-
-[Your Name/Contact]
+MIT License - see [LICENSE](LICENSE) for details.
