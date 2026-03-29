@@ -83,9 +83,15 @@ cask "wireshark-app"
 mas "Gifski", id: 1351639930
 mas "Xcode", id: 497799835
 
+# cask "balenaetcher" # for flashing SD cards, USB drives, etc.
+
+# mas "LimeChat", id: 414030210 # IRC client
 # cask "visualvm"
 # cask "vlc"
 # cask "vnc-viewer"
+# cask "maccy" # clipboard manager (similar to clipbook)
+# cask "whatsapp"
+# cask "bartender" # menu bar app to manage other menu bar apps (similar to thaw)
 
 # -- games --
 # cask "nvidia-geforce-now"
