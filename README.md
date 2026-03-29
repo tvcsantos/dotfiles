@@ -176,7 +176,7 @@ chezmoi edit-config
    ```bash
    chezmoi cd
    git add .
-   git commit -m "Update: ..."
+   git commit -m "feat: update ..."
    git push
    ```
 
