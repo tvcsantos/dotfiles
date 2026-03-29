@@ -21,7 +21,7 @@ for f in "$ZDOTDIR/init/"*.zsh(N); do
   source "$f"
 done
 
-# 5) Features (unordered; each file should guard its own inits)
+# 5) Features (ordered; each file should guard its own inits)
 for f in "$ZDOTDIR/features/"*.zsh(N); do
   source "$f"
 done
