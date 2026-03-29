@@ -1,6 +1,6 @@
+{{- if eq .chezmoi.os "darwin" -}}
 #!/bin/sh
 
-{{- if eq .chezmoi.os "darwin" -}}
 # Install packages using Homebrew
 brew bundle --file={{ .chezmoi.sourceDir }}/Brewfile
 {{- end -}}
