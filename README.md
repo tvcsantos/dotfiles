@@ -17,6 +17,7 @@ This repository uses [chezmoi](https://www.chezmoi.io/) to manage dotfiles and c
 
 ### Prerequisites
 
+- [chezmoi](https://www.chezmoi.io/install/)
 - Git
 - macOS or Linux
 
@@ -25,13 +26,13 @@ This repository uses [chezmoi](https://www.chezmoi.io/) to manage dotfiles and c
 1. **Clone and apply**:
 
    ```bash
-   chezmoi init --apply santotia/dotfiles
+   chezmoi init --apply tvcsantos/dotfiles
    ```
 
    Or manually:
 
    ```bash
-   chezmoi init https://github.com/santotia/dotfiles.git
+   chezmoi init https://github.com/tvcsantos/dotfiles.git
    chezmoi apply
    ```
 
