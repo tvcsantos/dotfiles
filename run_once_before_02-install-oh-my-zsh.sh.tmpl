@@ -3,5 +3,6 @@
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   echo "Installing Oh My Zsh..."
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  echo "Installing evalcache plugin..."
   git clone https://github.com/mroth/evalcache ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/evalcache
 fi
