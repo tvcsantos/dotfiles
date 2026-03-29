@@ -1,0 +1,8 @@
+{{- if eq .chezmoi.os "darwin" -}}
+{{- if .logi_options_plus -}}
+#!/bin/sh
+
+# Install Logi Options
+/bin/bash -c "{{ .chezmoi.sourceDir }}/download_logi_options_plus.sh"
+{{- end -}}
+{{- end -}}

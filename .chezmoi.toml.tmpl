@@ -13,6 +13,8 @@
 {{- $work_code_dirs = promptString "Your work code directories (comma-separated, e.g. ~/Code/Company1,~/Code/Company2)" "~/Code/Company" -}}
 {{- end -}}
 
+{{- $logi_options_plus := promptBool "Install Logi Options Plus (macOS only)" false -}}
+
 [data]
 name = {{ $name | quote }}
 email = {{ $email | quote }}
@@ -24,3 +26,4 @@ work_email = {{ $work_email | quote }}
 work_signingkey = {{ $work_signingkey | quote }}
 work_code_dirs = {{ $work_code_dirs | quote }}
 {{- end }}
+logi_options_plus = {{ $logi_options_plus }}
