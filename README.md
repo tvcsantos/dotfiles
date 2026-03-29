@@ -232,7 +232,7 @@ chezmoi update --apply
 chezmoi add ~/.config/myapp/settings.json
 cd ~/.local/share/chezmoi
 git add dot_config/myapp/settings.json.tmpl
-git commit -m "Add: myapp configuration"
+git commit -m "feat: add myapp configuration"
 git push
 ```
 
